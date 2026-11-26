@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Медиапожарный — интерактивный цифровой ситуационный центр ведущего для очных настольных антикризисных PR-игр и практикумов по медиапсихологии." />
+  <meta name="theme-color" content="#0B0F17" />
+  <title>Медиапожарный — Ситуационный центр ведущего</title>
+
+  <!-- Встроенный SVG-фавикон (не требует внешних файлов) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0F17'/%3E%3Cpath d='M32 10c2 9-6 13-6 21 0 5 4 9 9 9 2 0 4-1 6-2-2 9-9 16-18 16-10 0-17-7-17-17 0-11 9-17 15-24 2-2 4-4 11-3z' fill='%23F59E0B'/%3E%3Cpath d='M38 20c5 5 11 11 11 20 0 8-6 14-14 14 5-3 7-7 7-12 0-6-4-11-4-22z' fill='%23EF4444'/%3E%3C/svg%3E" />
+
+  <!-- Шрифты для чёткой проекторной читаемости с мгновенным фоллбэком на системные -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Строго относительные пути для GitHub Pages -->
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/animations.css" />
+</head>
+<body>
+  <!-- Атмосферный фон для главного экрана и пролога -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Основной контейнер приложения (переключается между режимом ведущего и 2-м экраном аудитории) -->
+  <div id="app-root" class="app-root" role="application" aria-label="Медиапожарный — Ситуационный центр">
+    <div class="boot-screen">
+      <div class="boot-emblem" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="56" height="56">
+          <path d="M32 8c3 11-7 16-7 25 0 6 4 10 10 10 3 0 5-1 7-3-2 10-10 17-20 17-11 0-19-8-19-19 0-12 10-19 17-27 3-3 6-4 12-3z" fill="#F59E0B"/>
+          <path d="M39 18c6 6 13 13 13 23 0 9-7 16-16 16 5-3 8-8 8-14 0-6-5-12-5-25z" fill="#EF4444"/>
+        </svg>
+      </div>
+      <div class="boot-title">МЕДИАПОЖАРНЫЙ</div>
+      <div class="boot-subtitle">Инициализация ситуационного центра…</div>
+    </div>
+  </div>
+
+  <!-- Шторка подсказок ведущего (клавиша H) -->
+  <aside id="gm-drawer-root" class="gm-drawer-root" aria-label="Шторка ведущего" aria-hidden="true"></aside>
+
+  <!-- Полноэкранные и интерактивные модальные сцены (вбросы, конверты, дилемма, опровержение, правила) -->
+  <div id="modal-root" class="modal-root" aria-live="polite"></div>
+
+  <!-- Стек системных уведомлений и оповещений о синергии -->
+  <div id="toast-root" class="toast-root" role="status" aria-live="polite"></div>
+
+  <!-- Область для печати комплекта раздаточных материалов и отчёта партии (@media print) -->
+  <section id="print-root" class="print-root" aria-hidden="true"></section>
+
+  <!-- Безопасная заглушка при критической ошибке (исключает «белый экран» на живой паре) -->
+  <div id="error-fallback" class="error-fallback" hidden role="alert">
+    <div class="error-card">
+      <h2>Сбой интерфейса ситуационного центра</h2>
+      <p id="error-fallback-message">Произошла непредвиденная ошибка. Сохранение партии в локальном хранилище не пострадало.</p>
+      <div class="error-actions">
+        <button type="button" id="error-reload-btn" class="btn btn-primary">Восстановить сессию</button>
+        <button type="button" id="error-reset-btn" class="btn btn-danger">Сбросить повреждённые данные</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Защита при отсутствии поддержки модулей или открытии через file:// без локального сервера -->
+  <noscript>
+    <div style="padding:32px;font-family:sans-serif;background:#0B0F17;color:#F8FAFC;min-height:100vh;">
+      <h1>Медиапожарный требует включённый JavaScript</h1>
+      <p>Включите JavaScript в настройках браузера и обновите страницу.</p>
+    </div>
+  </noscript>
+
+  <!-- Главный ES6-модуль приложения -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
