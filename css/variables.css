@@ -1,0 +1,355 @@
+/* ==========================================================================
+   МЕДИАПОЖАРНЫЙ — Система дизайн-токенов, тем и базовой типографики
+   Спроектировано для высокой читаемости на аудиторных проекторах и досках
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* --- Основные поверхности (глубокий графит и тёмный сланец) --- */
+  --bg-canvas: #070A10;
+  --bg-base: #0B0F17;
+  --bg-surface: #121826;
+  --bg-surface-2: #182133;
+  --bg-surface-3: #1F2A40;
+  --bg-glass: rgba(18, 24, 38, 0.84);
+  --bg-glass-strong: rgba(14, 19, 31, 0.94);
+  --bg-overlay: rgba(5, 8, 14, 0.82);
+
+  /* --- Границы и контуры (чёткие для проектора) --- */
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --border-default: rgba(148, 163, 184, 0.28);
+  --border-strong: rgba(203, 213, 225, 0.44);
+
+  /* --- Типографика и контраст текста --- */
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-inverse: #0B0F17;
+
+  /* --- Бренд-акцент «Медиапожарный» (янтарный / золотой) --- */
+  --accent-brand: #F59E0B;
+  --accent-brand-bright: #FBBF24;
+  --accent-brand-deep: #D97706;
+  --accent-brand-soft: rgba(245, 158, 11, 0.16);
+  --accent-brand-border: rgba(245, 158, 11, 0.45);
+  --accent-brand-glow: 0 0 28px rgba(245, 158, 11, 0.28);
+
+  /* --- Смысловой акцент: Опасность / Искры слуха / Взрыв --- */
+  --accent-danger: #EF4444;
+  --accent-danger-bright: #F87171;
+  --accent-danger-deep: #DC2626;
+  --accent-danger-soft: rgba(239, 68, 68, 0.17);
+  --accent-danger-border: rgba(239, 68, 68, 0.52);
+  --accent-danger-glow: 0 0 28px rgba(239, 68, 68, 0.38);
+
+  /* --- Смысловой акцент: Щит модерации / Истинная улика / Победа --- */
+  --accent-success: #10B981;
+  --accent-success-bright: #34D399;
+  --accent-success-deep: #059669;
+  --accent-success-soft: rgba(16, 185, 129, 0.16);
+  --accent-success-border: rgba(16, 185, 129, 0.48);
+  --accent-success-glow: 0 0 26px rgba(16, 185, 129, 0.3);
+
+  /* --- Смысловой акцент: OSINT / Аналитика / Медиапсихология --- */
+  --accent-info: #06B6D4;
+  --accent-info-bright: #22D3EE;
+  --accent-info-deep: #0891B2;
+  --accent-info-soft: rgba(6, 182, 212, 0.16);
+  --accent-info-border: rgba(6, 182, 212, 0.45);
+  --accent-info-glow: 0 0 24px rgba(6, 182, 212, 0.26);
+
+  /* --- Смысловой акцент: Индиго / Этический блок / Протокол --- */
+  --accent-indigo: #6366F1;
+  --accent-indigo-bright: #818CF8;
+  --accent-indigo-soft: rgba(99, 102, 241, 0.18);
+  --accent-indigo-border: rgba(99, 102, 241, 0.48);
+
+  /* --- Цветовая маркировка 5 столов (отделов штаба) --- */
+  --dept-1: #22D3EE; /* OSINT и фактчекинг */
+  --dept-2: #60A5FA; /* SMM и комьюнити */
+  --dept-3: #34D399; /* Внутренние коммуникации и медиация */
+  --dept-4: #FBBF24; /* Антикризисная PR-редакция */
+  --dept-5: #C084FC; /* Медиапсихологи и этический комитет */
+
+  /* --- Тени и глубина --- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.62);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* --- Шрифты --- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* --- Шкала типографики (адаптирована для аудитории) --- */
+  --text-xs: 0.78rem;
+  --text-sm: 0.88rem;
+  --text-base: 0.98rem;
+  --text-md: 1.1rem;
+  --text-lg: 1.28rem;
+  --text-xl: 1.55rem;
+  --text-2xl: 2.05rem;
+  --text-3xl: 2.75rem;
+  --text-hero: clamp(2.4rem, 4.2vw, 3.8rem);
+
+  /* --- Радиусы и отступы --- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* --- Скорости анимаций --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 150ms;
+  --dur-med: 260ms;
+  --dur-slow: 460ms;
+
+  /* --- Слои (z-index) --- */
+  --z-canvas: 0;
+  --z-app: 10;
+  --z-topbar: 40;
+  --z-drawer-backdrop: 75;
+  --z-drawer: 80;
+  --z-modal-backdrop: 100;
+  --z-modal: 110;
+  --z-toast: 140;
+  --z-error: 200;
+}
+
+/* ==========================================================================
+   Высококонтрастная светлая тема для засвеченных проекторов и солнечных аудиторий
+   ========================================================================== */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-canvas: #E6ECF4;
+  --bg-base: #EEF2F7;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #F4F7FB;
+  --bg-surface-3: #E7EEF6;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-glass-strong: rgba(255, 255, 255, 0.98);
+  --bg-overlay: rgba(15, 23, 42, 0.68);
+
+  --border-subtle: rgba(15, 23, 42, 0.14);
+  --border-default: rgba(15, 23, 42, 0.24);
+  --border-strong: rgba(15, 23, 42, 0.42);
+
+  --text-primary: #090D16;
+  --text-secondary: #1E293B;
+  --text-muted: #475569;
+  --text-inverse: #FFFFFF;
+
+  --accent-brand: #C26A00;
+  --accent-brand-bright: #D97706;
+  --accent-brand-deep: #9A4F00;
+  --accent-brand-soft: rgba(217, 119, 6, 0.13);
+  --accent-brand-border: rgba(194, 106, 0, 0.45);
+  --accent-brand-glow: 0 0 20px rgba(217, 119, 6, 0.2);
+
+  --accent-danger: #DC2626;
+  --accent-danger-bright: #EF4444;
+  --accent-danger-deep: #B91C1C;
+  --accent-danger-soft: rgba(220, 38, 38, 0.12);
+  --accent-danger-border: rgba(220, 38, 38, 0.46);
+  --accent-danger-glow: 0 0 22px rgba(220, 38, 38, 0.24);
+
+  --accent-success: #047857;
+  --accent-success-bright: #059669;
+  --accent-success-deep: #065F46;
+  --accent-success-soft: rgba(5, 150, 105, 0.12);
+  --accent-success-border: rgba(4, 120, 87, 0.45);
+  --accent-success-glow: 0 0 20px rgba(5, 150, 105, 0.22);
+
+  --accent-info: #0369A1;
+  --accent-info-bright: #0284C7;
+  --accent-info-deep: #075985;
+  --accent-info-soft: rgba(3, 105, 161, 0.11);
+  --accent-info-border: rgba(3, 105, 161, 0.42);
+  --accent-info-glow: 0 0 18px rgba(3, 105, 161, 0.18);
+
+  --accent-indigo: #4338CA;
+  --accent-indigo-bright: #4F46E5;
+  --accent-indigo-soft: rgba(67, 56, 202, 0.11);
+  --accent-indigo-border: rgba(67, 56, 202, 0.42);
+
+  --dept-1: #0284C7;
+  --dept-2: #2563EB;
+  --dept-3: #059669;
+  --dept-4: #C26A00;
+  --dept-5: #7E22CE;
+
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 10px 24px rgba(15, 23, 42, 0.11);
+  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.18);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   Сброс стилей и базовые правила
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  overflow-x: hidden;
+  transition: background-color var(--dur-med) var(--ease-out), color var(--dur-med) var(--ease-out);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+p {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+a {
+  color: var(--accent-info-bright);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-brand-bright);
+  outline-offset: 2px;
+}
+
+/* Утилиты доступности */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Стилизация полос прокрутки */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* Базовый экран загрузки до монтирования JS */
+.boot-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.boot-title {
+  font-size: var(--text-xl);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.boot-subtitle {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Уважение системной настройки снижения анимаций */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
