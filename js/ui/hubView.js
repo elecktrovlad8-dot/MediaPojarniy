@@ -200,7 +200,6 @@ export function renderHubView(root, actions) {
         <div class="section-header">
           <div>
             <h2 id="episodes-heading" class="section-title">Антология кризисных сценариев</h2>
-            <p class="section-subtitle">Модульная архитектура: новые части подключаются добавлением одного файла в <code class="mono">data/episodes/</code></p>
           </div>
         </div>
 
